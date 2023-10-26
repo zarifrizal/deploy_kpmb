@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kolej Profesional Mara Beranang</title>
+</head>
+<body>
+    <h1>KOLEJ PROFESIONAL MARA BERANANG</h1>
+    <h2>SEARCH BY STUDENT</h2>
+
+    <form action = "searchby_course" method = "post">
+        {% csrf_token %}
+            Course
+            <select name="s_course">
+                <option value = "">Select one</option>
+                {% for data in c_code %} <!--looping-->
+                    <option value = {{data.code}}>{{data.description}}</option> <!--cth description for attribute yg nk output -->
+                {% endfor %}
+            </select>
+            <input type = "submit" value = "SEARCH">
+            <br><br>
+
+            <table>
+                <tr>
+                    <caption>LIST OF STUDENT {{course}}</caption>
+                </tr>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Phone</th>
+                    <th>Status</th>
+                </tr>
+                {% for data in stud_list %}
+                <tr>
+                    <td>{{data.id}}</td>
+                    <td>{{data.name}}</td>
+                    <td>{{data.address}}</td>
+                    <td>{{data.phone}}</td>
+                    <td>{{data.status}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+    </form>
+    
+    <a href="/kpmb">HOME</a>
+    
+</body>
+</html>

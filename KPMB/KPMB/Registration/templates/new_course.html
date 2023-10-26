@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: bisque;
+        }
+        h1 {
+            color: brown;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kolej Profesional Mara Beranang</h1>
+    <strong>COURSE</strong>
+
+    <form action = "new_course" method = "post">
+        {% csrf_token %}
+            Course Code:
+            <input name = "code">
+            <br><br>
+            Description:
+            <input name = "desc">
+            <br><br>
+            <input type = "submit" value = "SAVE">
+    </form>
+    <br><br>
+    {{message}}
+    <br><br>
+
+    <a href="/kpmb/course">BACK</a>
+</body>
+</html>

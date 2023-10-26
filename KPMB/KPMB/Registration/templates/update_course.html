@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>WELCOME TO KPM BERANAG</h1>
+    <strong>UPDATE COURSE</strong>
+    <form action="save_update_course/{{data.code}}" method="post">
+        {% csrf_token %}
+        Course Code : <input type="text" name="code" value="{{data.code}}" disabled="false"><br> <!--xleh modify primary key, thats y disabled-->
+        Course Description : <input type="text" name="description" value="{{data.desc}}"><br><br><br>
+        <input type="Submit" value="Update">
+    </form>
+    <br><br><br>
+
+<br><br>
+<a href="/kpmb/course">BACK</a> <!--OR {% url 'course' %}-->
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: thistle;
+        }
+        table,tr,td,th{
+            border: solid;
+        }
+    </style>
+</head>
+<body>
+    <h1>WELCOME TO KPM BERANANG</h1>
+    <strong>COURSE</strong>
+
+    <table>
+        <tr>
+            <th><strong>CODE</strong></th>
+            <th><strong>DESCRIPTION</strong></th>
+            <th><strong>UPDATE</strong></th>
+            <th><strong>DELETE</strong></th>
+        </tr>
+        {% for data in allcourse %}
+            <tr>
+                <td>{{data.code}}</td>
+                <td>{{data.description}}</td>
+                <td><a href="update_course/{{data.code}}">Update</a></td><!--data code antar value-->
+                <td><a href="delete_course/{{data.code}}">Delete</a></td>
+                <!--xde couse dpn sbb memang dlm course file-->
+            </tr>
+        {% endfor %}
+    </table>
+    <br><br>
+    <a href="new_course">New Course</a>
+     <br>
+    <a href="{% url 'index' %}">HOME</a> <!--/kpmb (guna ni lagi senang)-->
+</body>
+</html>

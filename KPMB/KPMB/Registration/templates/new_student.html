@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: blanchedalmond;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kolej Profesional Mara Beranang</h1>
+    <h2>NEW STUDENT</h2>
+    <br>
+
+    <form action = "new_student" method = "post">
+        {% csrf_token %}
+            ID:
+            <input type = "text" name = "s_id">
+            <br><br>
+            Name:
+            <input type = "text" name = "s_name">
+            <br><br>
+            Address:
+            <input type = "text" name = "s_address">
+            <br><br>
+            Phone:
+            <input type = "text" name = "s_phone">
+            <br><br>
+            Course:
+            <select name="code">
+                <option value = "">Select one</option>
+                {% for course in code %}
+                <option value = {{course.code}}>{{course.description}}</option> <!--cth description for attribute yg nk output -->
+                {% endfor %}
+            </select>
+            <br><br>
+            <input type = "submit" value = "SAVE">
+    </form>
+    <br><br>
+    {{message}}
+    <br>
+
+    <a href="/kpmb">HOME</a>
+</body>
+</html>
